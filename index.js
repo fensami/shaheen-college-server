@@ -8,8 +8,6 @@ const port = process.env.PORT || 5000;
 app.use(cors())
 app.use(express.json())
 
-//collegeHEHE
-// wn7cShL7uNmoRqUV
 
 
 
@@ -28,10 +26,8 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    // await client.connect();
 
-
-    // const collegeCardsCollection = client.db('college').collectio('collegecards')
     const cardCollection = client.db('college').collection('clgcards')
     const collegesCollection = client.db('college').collection('colleges')
     const admissionCollegesCollection = client.db('college').collection('admission')
@@ -82,30 +78,6 @@ async function run() {
       const result = await admissionCollegesCollection.findOne(query)
       res.send(result)
     })
-
-
-
-
-    //all admission collge
-
-    // app.get('/allAdmissionCollege', async (req, res) => {
-    //   const email = req.query.email;
-    //   if (!email) {
-    //     res.send([]);
-    //   }
-    //   const decodedEmail = req.decoded.email;
-    //   if (email !== decodedEmail) {
-    //     return res.status(403).send({ error: true, message: 'forbidden access' })
-    //   }
-    //   const query = { email: email }; 
-
-    //   const result = await allAdmissionColleges.find(query).toArray();
-    //   res.send(result);
-    // });
-
-
-
-    ///
 
  
     app.get('/allAdmissionCollege', async (req, res) => {
